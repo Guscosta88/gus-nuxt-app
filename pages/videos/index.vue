@@ -11,7 +11,12 @@
 </template>
 <script>
 export default {
-    data() {
+    async asyncData(context) {
+        let response = await context.$axios.get('http://localhost:3000/api/videos')
+
+        console.log(response);
+        debugger
+
         return {
             videos: [{
                 id: '16',
