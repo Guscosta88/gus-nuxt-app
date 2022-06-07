@@ -8,7 +8,10 @@
 </template>
 <script>
 export default {
-    props: ['video']
+    props: ['video'],
+    head: {
+        title: 'Watch'
+    }
 }
 </script>
 <style lang="scss" scoped>
