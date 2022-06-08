@@ -4,6 +4,7 @@
     </div>
 </template>
 <script>
+import { mapState } from 'vuex';
 export default {
     head() {
         return{
@@ -15,9 +16,20 @@ export default {
         let response = await $axios.get(`/videos/${params.id}`)
         let video = response.data.data.attributes;
 
-        
-        return {
-            video
+        store.commit('SET_CURRENT_VIDEO', video);
+
+    },
+    computed: {
+        ...mapState({
+            video: 'currentVideo'
+        })
+    }
+}
+
+
+
+        // return {
+        //     video
 
     //         videos: [{
     //             id: '16',
@@ -38,10 +50,10 @@ export default {
     //         return this.videos.find(v => v.id == this.$route.params.id)
     //     }
 
-    }
-    }
+    // }
     
-}
+    
+
 </script>
 <style lang="scss" scoped>
     
